@@ -12,7 +12,7 @@ export default function Home() {
     },[])
     
     /**
-     * Used to check whether User is already auth or not
+     * Used to check whether User is already auth o
      */
     const checkUserAuth=async()=>{
         const result=await services.getData('login');
