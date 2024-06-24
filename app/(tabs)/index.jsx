@@ -1,21 +1,18 @@
 import { View, Text, StyleSheet, Button } from 'react-native'
 import React, { useEffect } from 'react'
 import {Link, useRouter} from 'expo-router'
-import {supabase} from './../../utils/SupabaseConfig'
+
 import services from './../../utils/services'
 import { client } from './../../utils/KindeConfig';
-import Header from '../../components/Header'
-import Colors from './../../utils/Colors'
 export default function Home() {
 
     const router=useRouter();
     useEffect (()=>{
         checkUserAuth();
-        getCategoryList();
     },[])
     
     /**
-     * Used to check whether User is already auth or not
+     * Used to check whether User is already auth o
      */
     const checkUserAuth=async()=>{
         const result=await services.getData('login');
@@ -33,23 +30,16 @@ export default function Home() {
         // User was logged out
       }
     };
-
-    const getCategoryList=async()=>{
-      const user=await client.getUserDetails();
-      const {data,error}=await supabase.from('Category')
-      .select('*')
-      .eq('created_by',user.email);
-
-      console.log("Data",data)
-    }
   return (
     <View style={{
-      marginTop:20,
-      padding:20,
-      backgroundColor:Colors.PRIMARY,
-      height:150
+      marginTop:20
     }}>
-      <Header/> 
+      <Text style={styles.text}>
+        An Expense Tracker</Text>
+     
+    <Button title='Logout'
+    onPress={handleLogout}
+    /> 
     </View>
   )
 }
