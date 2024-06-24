@@ -4,7 +4,7 @@ import loginBg from './../../assets/images/loginbg.png';
 import Colors from '../../utils/Colors';
 import {client} from './../../utils/KindeConfig'
 import services from './../../utils/services'
-import { useRouter } from 'expo-router';
+import {useRouter} from 'expo-router';
 
 export default function LoginScreen() {
 
